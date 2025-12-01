@@ -1,0 +1,115 @@
+{
+  "name": "Ferdinand \"Ferd\" Cami",
+  "title": "Vice President, Global Legal Hosted Services",
+  "summary": "Strategic and collaborative technology executive with deep expertise in eDiscovery, legal technology, and global hosted solutions. Proven record of scaling professional services organizations in hypergrowth environments by orchestrating cross-functional teams, optimizing operational efficiency, and driving measurable customer outcomes. Known as a customer-obsessed, low-ego leader who simplifies complexity, inspires distributed teams, and builds value-driven service models. Adept at fintech, analytics/AI, and legal technology, with a consistent track record of improving execution speed, client satisfaction, and operational scalability.",
+  "contact": {
+    "location": "Chicago, IL",
+    "phone": "###.###.####",
+    "linkedin": "https://www.linkedin.com/in/ferdinandcami",
+    "github": "https://github.com/ferdcami",
+    "email": "ferdinand.cami@gmail.com"
+  },
+  "experience": [
+    {
+      "company": "KLDiscovery Ontrack, LLC",
+      "role": "Vice President, Global Legal Hosted Services",
+      "period": "2014 – Present",
+      "location": "Chicago, IL",
+      "highlights": [
+        "Directed department, overseeing an average of 58,000+ annual hours (42,000 billable / 16,000 non-billable) and driving $5M+ in annual professional services revenue with annualized contributions up to $6.7M",
+        "Improved utilization and efficiency, achieving ~81% utilization and 75% target attainment while balancing client delivery with operational and talent development priorities",
+        "Oversaw more than 2 petabytes of active eDiscovery hosting data, generating $220M in ARR, creating a recurring, high-margin revenue stream",
+        "Directed global teams across multiple regions, instilling a culture of accountability, customer empathy, and operational excellence",
+        "Defined and tracked KPIs for uptime, efficiency, and client satisfaction, reducing delivery friction and improving implementation cycle times",
+        "Led strategic collaborations with product, commercial, and engineering teams to integrate client needs into scalable solutions and long-term product roadmaps",
+        "Mentored and developed talent, creating a distributed high-performing team through structured training, coaching, and leadership development",
+        "Introduced scalable solutions for data migration, system performance, and complex data transformations (SQL, multi-source extractions), resulting in measurable efficiency gains",
+        "Acted as executive sponsor for key clients, translating business goals into aligned technical outcomes and strengthening long-term partnerships"
+      ]
+    },
+    {
+      "company": "KLDiscovery Ontrack, LLC",
+      "role": "Director, Legal Hosted Services/Forensics Examiner",
+      "period": "2011 – 2014",
+      "location": "Chicago, IL",
+      "highlights": [
+        "Built and managed professional services delivery frameworks for hosted and forensic solutions",
+        "Partnered with clients on complex implementations, ensuring security, compliance, and efficient execution",
+        "Elevated operational practices by implementing structured escalation protocols, reducing client impact of recurring technical issues"
+      ]
+    },
+    {
+      "company": "KLDiscovery Ontrack, LLC",
+      "role": "Senior eDiscovery Consultant/Technical Project Manager",
+      "period": "2006 – 2011",
+      "location": "Chicago, IL",
+      "highlights": [
+        "Managed large-scale eDiscovery projects across commercial litigation, employment law, and regulatory matters",
+        "Coordinated multidisciplinary teams and external vendors, ensuring on-time and budget-conscious delivery",
+        "Developed and refined project playbooks that improved delivery quality and reduced turnaround times"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "DePaul University",
+      "degree": "B.S. CyberSecurity / CompSci Minor",
+      "year": "Graduated",
+      "location": "Chicago, IL"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Leadership & Management",
+      "items": ["Professional Services Leadership", "Cross-Functional Team Leadership", "Global Talent Development", "Executive & Customer Communication"]
+    },
+    {
+      "category": "Legal Technology & eDiscovery",
+      "items": ["eDiscovery & Legal Tech", "Relativity", "Fintech Familiarity", "Analytics/AI Solutions"]
+    },
+    {
+      "category": "Technical & Operations",
+      "items": ["Relational Databases (PGSQL/MSSQL)", "CRM (Zendesk)", "Operational Efficiency & KPI Tracking", "Process Optimization & Cost Reduction"]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Relativity Master",
+      "issuer": "Relativity",
+      "year": ""
+    },
+    {
+      "name": "Full MEDDPICC",
+      "issuer": "Sales Certification",
+      "year": ""
+    },
+    {
+      "name": "Nebula",
+      "issuer": "Nebula",
+      "year": ""
+    },
+    {
+      "name": "EnCase",
+      "issuer": "EnCase",
+      "year": ""
+    },
+    {
+      "name": "Brainspace",
+      "issuer": "Brainspace",
+      "year": ""
+    },
+    {
+      "name": "Advanced SQL",
+      "issuer": "SQL Training",
+      "year": ""
+    },
+    {
+      "name": "Content Analyst",
+      "issuer": "Content Analyst",
+      "year": ""
+    }
+  ],
+  "languages": [
+    "Albanian"
+  ]
+}
