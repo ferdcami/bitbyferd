@@ -1,45 +1,53 @@
 function Projects() {
+  const projects = [
+    {
+      id: 1,
+      icon: '🇦🇱',
+      title: 'Albanian Flashcards',
+      description:
+        'Interactive language learning tool with verbs, numbers, and nouns. Features quiz modes and progress tracking.',
+      status: 'Coming Soon',
+      statusColor: 'text-brand-primary',
+    },
+    {
+      id: 2,
+      icon: '🚀',
+      title: 'Project Two',
+      description: 'Another exciting project in development. Stay tuned for updates!',
+      status: 'In Development',
+      statusColor: 'text-brand-secondary',
+      opacity: 'opacity-60',
+    },
+    {
+      id: 3,
+      icon: '💡',
+      title: 'Project Three',
+      description: 'More innovation coming soon. Check back for updates!',
+      status: 'Planning',
+      statusColor: 'text-brand-secondary',
+      opacity: 'opacity-60',
+    },
+  ];
+
   return (
-    <div className="min-h-screen py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-5xl font-extrabold mb-4 text-brand-heading text-center">
-          Vibe Coding Projects
-        </h1>
-        <p className="text-xl text-brand-text text-center mb-12">
-          Explore my portfolio of innovative tools and applications
-        </p>
+    <div className="min-h-screen py-16">
+      <div className="content-container">
+        <div className="text-center mb-16">
+          <h1 className="text-headline mb-4 text-brand-heading">Vibe Coding Projects</h1>
+          <p className="text-body-large text-brand-text">
+            Explore my portfolio of innovative tools and applications
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Albanian Flashcards Project */}
-          <div className="bg-brand-muted p-6 rounded-lg hover:executive-glow transition-all cursor-pointer">
-            <div className="text-4xl mb-4">🇦🇱</div>
-            <h3 className="text-2xl font-bold text-brand-heading mb-3">Albanian Flashcards</h3>
-            <p className="text-brand-text mb-4">
-              Interactive language learning tool with verbs, numbers, and nouns. Features quiz modes
-              and progress tracking.
-            </p>
-            <span className="text-brand-primary font-semibold">Coming Soon →</span>
-          </div>
-
-          {/* Placeholder Project 2 */}
-          <div className="bg-brand-muted p-6 rounded-lg hover:executive-glow transition-all cursor-pointer opacity-60">
-            <div className="text-4xl mb-4">🚀</div>
-            <h3 className="text-2xl font-bold text-brand-heading mb-3">Project Two</h3>
-            <p className="text-brand-text mb-4">
-              Another exciting project in development. Stay tuned for updates!
-            </p>
-            <span className="text-brand-secondary font-semibold">In Development</span>
-          </div>
-
-          {/* Placeholder Project 3 */}
-          <div className="bg-brand-muted p-6 rounded-lg hover:executive-glow transition-all cursor-pointer opacity-60">
-            <div className="text-4xl mb-4">💡</div>
-            <h3 className="text-2xl font-bold text-brand-heading mb-3">Project Three</h3>
-            <p className="text-brand-text mb-4">
-              More innovation coming soon. Check back for updates!
-            </p>
-            <span className="text-brand-secondary font-semibold">Planning</span>
-          </div>
+          {projects.map(project => (
+            <div key={project.id} className={`card-hover ${project.opacity || ''}`}>
+              <div className="text-5xl mb-4">{project.icon}</div>
+              <h3 className="text-2xl font-bold text-brand-heading mb-3">{project.title}</h3>
+              <p className="text-brand-text mb-6 leading-relaxed">{project.description}</p>
+              <span className={`${project.statusColor} font-semibold`}>{project.status} →</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

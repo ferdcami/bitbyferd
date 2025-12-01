@@ -12,7 +12,7 @@ function App() {
     <Router>
       <div className="min-h-screen flex flex-col">
         <NavBar />
-        
+
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />

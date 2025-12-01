@@ -20,22 +20,34 @@ function Footer() {
             <h4 className="text-lg font-bold text-brand-heading mb-3">Navigate</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-brand-text hover:text-brand-primary transition-colors text-sm">
+                <Link
+                  to="/"
+                  className="text-brand-text hover:text-brand-primary transition-colors text-sm"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/cv" className="text-brand-text hover:text-brand-primary transition-colors text-sm">
+                <Link
+                  to="/cv"
+                  className="text-brand-text hover:text-brand-primary transition-colors text-sm"
+                >
                   CV
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-brand-text hover:text-brand-primary transition-colors text-sm">
+                <Link
+                  to="/projects"
+                  className="text-brand-text hover:text-brand-primary transition-colors text-sm"
+                >
                   Vibe Coding Projects
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-brand-text hover:text-brand-primary transition-colors text-sm">
+                <Link
+                  to="/contact"
+                  className="text-brand-text hover:text-brand-primary transition-colors text-sm"
+                >
                   Contact
                 </Link>
               </li>
