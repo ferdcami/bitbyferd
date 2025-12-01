@@ -1,0 +1,22 @@
+[
+  {"id":"num-001","albanian":"një","english":"one","type":"number"},
+  {"id":"num-002","albanian":"dy","english":"two","type":"number"},
+  {"id":"num-003","albanian":"tre","english":"three","type":"number"},
+  {"id":"num-004","albanian":"katër","english":"four","type":"number"},
+  {"id":"num-005","albanian":"pesë","english":"five","type":"number"},
+  {"id":"num-006","albanian":"gjashtë","english":"six","type":"number"},
+  {"id":"num-007","albanian":"shtatë","english":"seven","type":"number"},
+  {"id":"num-008","albanian":"tetë","english":"eight","type":"number"},
+  {"id":"num-009","albanian":"nëntë","english":"nine","type":"number"},
+  {"id":"num-010","albanian":"dhjetë","english":"ten","type":"number"},
+  {"id":"num-011","albanian":"njëmbëdhjetë","english":"eleven","type":"number"},
+  {"id":"num-012","albanian":"dymbëdhjetë","english":"twelve","type":"number"},
+  {"id":"num-013","albanian":"trembëdhjetë","english":"thirteen","type":"number"},
+  {"id":"num-014","albanian":"katërmbëdhjetë","english":"fourteen","type":"number"},
+  {"id":"num-015","albanian":"pesëmbëdhjetë","english":"fifteen","type":"number"},
+  {"id":"num-016","albanian":"gjashtëmbëdhjetë","english":"sixteen","type":"number"},
+  {"id":"num-017","albanian":"shtatëmbëdhjetë","english":"seventeen","type":"number"},
+  {"id":"num-018","albanian":"tetëmbëdhjetë","english":"eighteen","type":"number"},
+  {"id":"num-019","albanian":"nëntëmbëdhjetë","english":"nineteen","type":"number"},
+  {"id":"num-020","albanian":"njëzet","english":"twenty","type":"number"}
+]
