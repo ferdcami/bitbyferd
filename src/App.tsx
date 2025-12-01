@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import CV from './pages/CV';
 import Projects from './pages/Projects';
@@ -8,62 +10,20 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen">
-        {/* Navigation Bar */}
-        <nav className="bg-brand-muted border-b border-brand-text/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <Link
-                to="/"
-                className="text-2xl font-extrabold text-brand-heading hover:text-brand-primary transition-colors"
-              >
-                BitByFerd
-              </Link>
-              <div className="flex space-x-8">
-                <Link
-                  to="/"
-                  className="text-brand-text hover:text-brand-primary transition-colors font-semibold"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/cv"
-                  className="text-brand-text hover:text-brand-primary transition-colors font-semibold"
-                >
-                  CV
-                </Link>
-                <Link
-                  to="/projects"
-                  className="text-brand-text hover:text-brand-primary transition-colors font-semibold"
-                >
-                  Projects
-                </Link>
-                <Link
-                  to="/contact"
-                  className="text-brand-text hover:text-brand-primary transition-colors font-semibold"
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
-          </div>
-        </nav>
+      <div className="min-h-screen flex flex-col">
+        <NavBar />
+        
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cv" element={<CV />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
 
-        {/* Page Content */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cv" element={<CV />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-
-        {/* Footer */}
-        <footer className="bg-brand-muted border-t border-brand-text/10 py-8">
-          <div className="max-w-7xl mx-auto px-4 text-center text-brand-text">
-            <p>&copy; 2025 BitByFerd. Where code meets clarity.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Router>
   );
