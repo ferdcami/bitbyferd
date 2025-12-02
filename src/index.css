@@ -82,7 +82,6 @@
     @apply bg-brand-muted rounded-lg p-6 executive-shadow hover:executive-glow transition-all cursor-pointer;
   }
 
-  /* Simple animations */
   .animate-fade-in {
     animation: fadeIn 0.8s ease-in;
   }
@@ -96,6 +95,24 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* 3D Transform utilities for card flip */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
   }
 }
 

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Projects() {
   const projects = [
     {
@@ -6,7 +8,7 @@ function Projects() {
       title: 'Albanian Flashcards',
       description:
         'Interactive language learning tool featuring verbs, numbers, and nouns with multiple quiz modes, progress tracking, and statistics.',
-      status: 'Coming Soon',
+      status: 'Try it Now!',
       statusColor: 'text-brand-primary',
       featured: true,
       tags: ['React', 'TypeScript', 'Education'],
@@ -49,66 +51,128 @@ function Projects() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map(project => (
-            <div
-              key={project.id}
-              className={`group relative bg-brand-muted rounded-lg p-8 executive-shadow hover:executive-glow transition-all cursor-pointer flex flex-col ${
-                project.featured ? '' : 'opacity-70 hover:opacity-100'
-              }`}
-            >
-              {/* Featured Badge */}
-              {project.featured && (
-                <div className="absolute top-4 right-4 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                  Featured
+          {projects.map(project => {
+            // Albanian Flashcards - make it clickable
+            if (project.id === 1) {
+              return (
+                <Link to="/flashcards" key={project.id}>
+                  <div className="group relative bg-brand-muted rounded-lg p-8 executive-shadow hover:executive-glow transition-all cursor-pointer flex flex-col">
+                    {/* Featured Badge */}
+                    <div className="absolute top-4 right-4 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                      Featured
+                    </div>
+
+                    {/* Icon */}
+                    <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">
+                      {project.icon}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-2xl font-bold text-brand-heading mb-3">{project.title}</h3>
+
+                    {/* Description */}
+                    <p className="text-brand-text leading-relaxed mb-6 flex-grow">
+                      {project.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map(tag => (
+                        <span
+                          key={tag}
+                          className="text-xs px-3 py-1 bg-brand-bg rounded-full text-brand-text/70 font-semibold"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Status with Arrow */}
+                    <div className="flex items-center justify-between pt-4 border-t border-brand-text/10">
+                      <span className={project.statusColor + ' font-semibold text-sm'}>
+                        {project.status}
+                      </span>
+                      <svg
+                        className="w-5 h-5 text-brand-primary group-hover:translate-x-2 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
+              );
+            }
+
+            // Other projects - keep as is
+            return (
+              <div
+                key={project.id}
+                className={`group relative bg-brand-muted rounded-lg p-8 executive-shadow hover:executive-glow transition-all cursor-pointer flex flex-col ${
+                  project.featured ? '' : 'opacity-70 hover:opacity-100'
+                }`}
+              >
+                {/* Featured Badge */}
+                {project.featured && (
+                  <div className="absolute top-4 right-4 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Featured
+                  </div>
+                )}
+
+                {/* Icon */}
+                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">
+                  {project.icon}
                 </div>
-              )}
 
-              {/* Icon */}
-              <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">
-                {project.icon}
-              </div>
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-brand-heading mb-3">{project.title}</h3>
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-brand-heading mb-3">{project.title}</h3>
+                {/* Description */}
+                <p className="text-brand-text leading-relaxed mb-6 flex-grow">
+                  {project.description}
+                </p>
 
-              {/* Description */}
-              <p className="text-brand-text leading-relaxed mb-6 flex-grow">
-                {project.description}
-              </p>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map(tag => (
+                    <span
+                      key={tag}
+                      className="text-xs px-3 py-1 bg-brand-bg rounded-full text-brand-text/70 font-semibold"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map(tag => (
-                  <span
-                    key={tag}
-                    className="text-xs px-3 py-1 bg-brand-bg rounded-full text-brand-text/70 font-semibold"
-                  >
-                    {tag}
+                {/* Status with Arrow */}
+                <div className="flex items-center justify-between pt-4 border-t border-brand-text/10">
+                  <span className={`${project.statusColor} font-semibold text-sm`}>
+                    {project.status}
                   </span>
-                ))}
+                  <svg
+                    className="w-5 h-5 text-brand-primary group-hover:translate-x-2 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </div>
               </div>
-
-              {/* Status with Arrow */}
-              <div className="flex items-center justify-between pt-4 border-t border-brand-text/10">
-                <span className={`${project.statusColor} font-semibold text-sm`}>
-                  {project.status}
-                </span>
-                <svg
-                  className="w-5 h-5 text-brand-primary group-hover:translate-x-2 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Call to Action */}

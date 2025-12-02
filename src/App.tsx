@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import CV from './pages/CV';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import Flashcards from './pages/Flashcards';
 import FlashcardsTest from './pages/FlashcardsTest';
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/cv" element={<CV />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/flashcards" element={<Flashcards />} />
             <Route path="/flashcards-test" element={<FlashcardsTest />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
