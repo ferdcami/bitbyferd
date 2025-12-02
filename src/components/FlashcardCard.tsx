@@ -4,20 +4,28 @@ interface FlashcardCardProps {
   card: Flashcard;
   isFlipped: boolean;
   onFlip: () => void;
+  onMarkCorrect?: () => void;
+  onMarkIncorrect?: () => void;
 }
 
-function FlashcardCard({ card, isFlipped, onFlip }: FlashcardCardProps) {
+function FlashcardCard({
+  card,
+  isFlipped,
+  onFlip,
+  onMarkCorrect,
+  onMarkIncorrect,
+}: FlashcardCardProps) {
   return (
     <div className="perspective-1000 w-full max-w-2xl mx-auto">
       <div
-        onClick={onFlip}
-        className={`relative h-80 cursor-pointer transition-transform duration-500 transform-style-3d ${
+        className={`relative h-80 transition-transform duration-500 transform-style-3d ${
           isFlipped ? 'rotate-y-180' : ''
         }`}
       >
         {/* Front of card (Albanian) */}
         <div
-          className={`absolute inset-0 backface-hidden rounded-2xl executive-shadow ${
+          onClick={onFlip}
+          className={`absolute inset-0 backface-hidden rounded-2xl executive-shadow cursor-pointer ${
             isFlipped ? 'invisible' : 'visible'
           }`}
         >
@@ -41,14 +49,56 @@ function FlashcardCard({ card, isFlipped, onFlip }: FlashcardCardProps) {
             <div className="text-5xl md:text-6xl font-bold text-white text-center mb-6">
               {card.english}
             </div>
-            <div className="px-4 py-2 bg-white/20 rounded-lg text-white text-sm">{card.type}</div>
+            <div className="px-4 py-2 bg-white/20 rounded-lg text-white text-sm mb-6">
+              {card.type}
+            </div>
+
+            {/* Action buttons - only visible when flipped */}
+            {isFlipped && (
+              <div className="flex gap-4 mt-4">
+                <button
+                  onClick={e => {
+                    e.stopPropagation();
+                    onMarkIncorrect?.();
+                  }}
+                  className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold transition-all executive-shadow flex items-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                  Got it Wrong
+                </button>
+                <button
+                  onClick={e => {
+                    e.stopPropagation();
+                    onMarkCorrect?.();
+                  }}
+                  className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold transition-all executive-shadow flex items-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Got it Right
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
       {/* Flip hint */}
       <div className="text-center mt-6 text-brand-text/50 text-sm">
-        {isFlipped ? 'Click to flip back' : 'Click to see translation'}
+        {isFlipped ? 'Mark your answer above' : 'Click to see translation'}
       </div>
     </div>
   );
