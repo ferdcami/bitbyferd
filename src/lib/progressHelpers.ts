@@ -2,8 +2,9 @@ import type { Flashcard, ProgressMap, ProgressEntry } from './types';
 import { readProgress, writeProgress } from './storage';
 
 export const markAnswer = (cardId: string, isCorrect: boolean): void => {
-  const progressMap = readProgress();
+  const progressMap: ProgressMap = readProgress(); // Add explicit type annotation here
 
+  // ... rest of the function
   const entry: ProgressEntry = progressMap[cardId] ?? {
     correct: 0,
     incorrect: 0,
@@ -34,10 +35,17 @@ export const getRedoDeck = (allCards: Flashcard[]): Flashcard[] => {
 
   return allCards.filter(card => {
     const progress = progressMap[card.id];
+
+    // No progress means card hasn't been studied
     if (!progress) return false;
 
-    // Card needs redo if incorrect count > correct count
-    return progress.incorrect > progress.correct;
+    // Card needs redo if:
+    // 1. It has been studied (has at least one attempt)
+    // 2. Incorrect count is greater than correct count
+    const hasBeenStudied = progress.correct + progress.incorrect > 0;
+    const needsReview = progress.incorrect > progress.correct;
+
+    return hasBeenStudied && needsReview;
   });
 };
 
