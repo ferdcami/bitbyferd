@@ -24,7 +24,7 @@ function DeckControls({
   const modes: { mode: StudyMode; label: string; description: string }[] = [
     { mode: 'study', label: 'Study', description: 'Learn all cards' },
     { mode: 'redo', label: 'Redo', description: `Review ${redoCount} weak cards` },
-    { mode: 'quiz', label: 'Quiz', description: 'Coming soon!' },
+    { mode: 'quiz', label: 'Quiz', description: 'Multiple choice test' },
   ];
 
   return (
@@ -58,13 +58,10 @@ function DeckControls({
             <button
               key={mode}
               onClick={() => onChangeMode(mode)}
-              disabled={mode === 'quiz'}
               className={`p-4 rounded-lg text-left transition-all ${
                 studyMode === mode
                   ? 'bg-brand-secondary text-white executive-shadow'
-                  : mode === 'quiz'
-                    ? 'bg-brand-muted text-brand-text/30 cursor-not-allowed'
-                    : 'bg-brand-muted text-brand-text hover:bg-brand-muted/80'
+                  : 'bg-brand-muted text-brand-text hover:bg-brand-muted/80'
               }`}
             >
               <div className="font-bold mb-1">{label}</div>

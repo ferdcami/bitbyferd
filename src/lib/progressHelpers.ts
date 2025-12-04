@@ -33,7 +33,9 @@ export const getCardProgress = (cardId: string): ProgressEntry | null => {
 export const getRedoDeck = (allCards: Flashcard[]): Flashcard[] => {
   const progressMap = readProgress();
 
-  return allCards.filter(card => {
+  console.log('Progress map:', progressMap);
+
+  const redoCards = allCards.filter(card => {
     const progress = progressMap[card.id];
 
     // No progress means card hasn't been studied
@@ -45,8 +47,16 @@ export const getRedoDeck = (allCards: Flashcard[]): Flashcard[] => {
     const hasBeenStudied = progress.correct + progress.incorrect > 0;
     const needsReview = progress.incorrect > progress.correct;
 
+    console.log(
+      `Card ${card.id}: correct=${progress.correct}, incorrect=${progress.incorrect}, needsReview=${needsReview}`
+    );
+
     return hasBeenStudied && needsReview;
   });
+
+  console.log('Redo cards count:', redoCards.length);
+
+  return redoCards;
 };
 
 export const calculateStats = (allCards: Flashcard[]) => {

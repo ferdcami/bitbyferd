@@ -4,6 +4,8 @@ import DeckControls from '../components/DeckControls';
 import verbsData from '../data/flashcards/verbs.json';
 import numbersData from '../data/flashcards/numbers.json';
 import nounsData from '../data/flashcards/nouns.json';
+import QuizMCQ from '../components/QuizMCQ';
+import QuizSummary from '../components/QuizSummary';
 import type { Flashcard, CardType, StudyMode } from '../lib/types';
 import { markAnswer, getCardProgress, calculateStats, getRedoDeck } from '../lib/progressHelpers';
 
@@ -16,6 +18,8 @@ function Flashcards() {
 
   const [activeTypes, setActiveTypes] = useState<CardType[]>(['verb', 'number', 'noun']);
   const [studyMode, setStudyMode] = useState<StudyMode>('study');
+  const [quizResults, setQuizResults] = useState<boolean[]>([]);
+  const [showQuizSummary, setShowQuizSummary] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -62,9 +66,9 @@ function Flashcards() {
 
   // Handle mode change
   const handleChangeMode = (mode: StudyMode) => {
-    if (mode !== 'quiz') {
-      setStudyMode(mode);
-    }
+    setStudyMode(mode);
+    setQuizResults([]);
+    setShowQuizSummary(false);
   };
 
   // Handle next card
@@ -101,6 +105,37 @@ function Flashcards() {
     setTimeout(() => {
       handleNext();
     }, 1000);
+  };
+
+  // Handle quiz answer
+  const handleQuizAnswer = (isCorrect: boolean) => {
+    if (!currentCard) return;
+
+    // Record answer
+    markAnswer(currentCard.id, isCorrect);
+    setQuizResults(prev => [...prev, isCorrect]);
+
+    // Move to next question or show summary
+    setTimeout(() => {
+      setCurrentIndex(prevIndex => {
+        if (prevIndex < totalCards - 1) {
+          return prevIndex + 1;
+        } else {
+          setShowQuizSummary(true);
+          return prevIndex;
+        }
+      });
+    }, 1500);
+  };
+
+  // Restart quiz
+  const handleRestartQuiz = () => {
+    setCurrentIndex(0);
+    setQuizResults([]);
+    setShowQuizSummary(false);
+    setIsFlipped(false);
+    setShowFeedback(false);
+    setFeedbackType(null);
   };
 
   // Keyboard controls
@@ -211,6 +246,9 @@ function Flashcards() {
                   {studyMode === 'redo' && (
                     <span className="text-brand-secondary ml-2">(Redo Mode)</span>
                   )}
+                  {studyMode === 'quiz' && (
+                    <span className="text-brand-secondary ml-2">(Quiz Mode)</span>
+                  )}
                 </span>
                 <span className="text-brand-text/70 text-sm">
                   {cardProgress
@@ -228,83 +266,122 @@ function Flashcards() {
               </div>
             </div>
 
-            {/* Feedback overlay */}
-            {showFeedback && (
-              <div className="max-w-2xl mx-auto mb-4">
-                <div
-                  className={`card text-center ${
-                    feedbackType === 'correct'
-                      ? 'bg-green-500/20 border-2 border-green-500'
-                      : 'bg-red-500/20 border-2 border-red-500'
-                  }`}
-                >
-                  <div className="text-2xl font-bold">
-                    {feedbackType === 'correct' ? '✓ Correct!' : '✗ Keep Practicing!'}
+            {/* Main Content Area */}
+            {showQuizSummary ? (
+              <QuizSummary
+                totalQuestions={quizResults.length}
+                correctAnswers={quizResults.filter(r => r).length}
+                onRestart={handleRestartQuiz}
+                onBackToStudy={() => {
+                  setStudyMode('study');
+                  setQuizResults([]);
+                  setShowQuizSummary(false);
+                  setCurrentIndex(0);
+                  setIsFlipped(false);
+                  setShowFeedback(false);
+                  setFeedbackType(null);
+                }}
+              />
+            ) : studyMode === 'quiz' ? (
+              <div className="mb-12">
+                <QuizMCQ
+                  key={currentCard.id}
+                  card={currentCard}
+                  allCards={allCards}
+                  onAnswer={handleQuizAnswer}
+                />
+              </div>
+            ) : (
+              <>
+                {/* Feedback overlay */}
+                {showFeedback && (
+                  <div className="max-w-2xl mx-auto mb-4">
+                    <div
+                      className={`card text-center ${
+                        feedbackType === 'correct'
+                          ? 'bg-green-500/20 border-2 border-green-500'
+                          : 'bg-red-500/20 border-2 border-red-500'
+                      }`}
+                    >
+                      <div className="text-2xl font-bold">
+                        {feedbackType === 'correct' ? '✓ Correct!' : '✗ Keep Practicing!'}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Flashcard */}
+                <div className="mb-12">
+                  <FlashcardCard
+                    card={currentCard}
+                    isFlipped={isFlipped}
+                    onFlip={() => !showFeedback && setIsFlipped(!isFlipped)}
+                    onMarkCorrect={() => handleMarkAnswer(true)}
+                    onMarkIncorrect={() => handleMarkAnswer(false)}
+                  />
+                </div>
+
+                {/* Navigation controls */}
+                <div className="max-w-2xl mx-auto">
+                  <div className="flex justify-between items-center gap-4">
+                    <button
+                      onClick={handlePrev}
+                      disabled={currentIndex === 0 || showFeedback}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+                        currentIndex === 0 || showFeedback
+                          ? 'bg-brand-muted text-brand-text/30 cursor-not-allowed'
+                          : 'btn-secondary'
+                      }`}
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
+                      Previous
+                    </button>
+
+                    <div className="text-center text-brand-text/70 text-sm">
+                      <div>Arrow keys to navigate</div>
+                      <div>Space/Enter to flip</div>
+                    </div>
+
+                    <button
+                      onClick={handleNext}
+                      disabled={currentIndex === totalCards - 1 || showFeedback}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+                        currentIndex === totalCards - 1 || showFeedback
+                          ? 'bg-brand-muted text-brand-text/30 cursor-not-allowed'
+                          : 'btn-primary'
+                      }`}
+                    >
+                      Next
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
                   </div>
                 </div>
-              </div>
+              </>
             )}
-
-            {/* Flashcard */}
-            <div className="mb-12">
-              <FlashcardCard
-                card={currentCard}
-                isFlipped={isFlipped}
-                onFlip={() => !showFeedback && setIsFlipped(!isFlipped)}
-                onMarkCorrect={() => handleMarkAnswer(true)}
-                onMarkIncorrect={() => handleMarkAnswer(false)}
-              />
-            </div>
-
-            {/* Navigation controls */}
-            <div className="max-w-2xl mx-auto">
-              <div className="flex justify-between items-center gap-4">
-                <button
-                  onClick={handlePrev}
-                  disabled={currentIndex === 0 || showFeedback}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
-                    currentIndex === 0 || showFeedback
-                      ? 'bg-brand-muted text-brand-text/30 cursor-not-allowed'
-                      : 'btn-secondary'
-                  }`}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                  Previous
-                </button>
-
-                <div className="text-center text-brand-text/70 text-sm">
-                  <div>Arrow keys to navigate</div>
-                  <div>Space/Enter to flip</div>
-                </div>
-
-                <button
-                  onClick={handleNext}
-                  disabled={currentIndex === totalCards - 1 || showFeedback}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
-                    currentIndex === totalCards - 1 || showFeedback
-                      ? 'bg-brand-muted text-brand-text/30 cursor-not-allowed'
-                      : 'btn-primary'
-                  }`}
-                >
-                  Next
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
           </>
         )}
       </div>
