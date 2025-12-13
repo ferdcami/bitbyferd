@@ -1,203 +1,136 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { animateStaggerFadeIn, animateCardHover } from '../lib/animations';
+import MetaTags from '../components/MetaTags';
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image?: string;
+  icon?: string;
+  link: string;
+  featured?: boolean;
+  tags?: string[];
+}
+
+const projects: Project[] = [
+  {
+    id: 1,
+    title: 'Albanian Flashcards',
+    description: 'A comprehensive language learning tool with 60+ flashcards, multiple study modes, and progress tracking. Features include flip animations, quiz modes (MCQ & fill-in-the-blank), and persistent LocalStorage.',
+    icon: '📚',
+    link: '/flashcards',
+    featured: true,
+    tags: ['React', 'TypeScript', 'TailwindCSS', 'Language Learning'],
+  },
+  {
+    id: 2,
+    title: 'Portfolio Site',
+    description: 'This site! A modern, responsive personal website built with React, Vite, and TailwindCSS. Showcasing executive-modern design with smooth animations and semantic HTML.',
+    icon: '🌐',
+    link: '/',
+    featured: false,
+    tags: ['React', 'Vite', 'TailwindCSS', 'Animation'],
+  },
+  {
+    id: 3,
+    title: 'Coming Soon',
+    description: 'Future projects in development. Stay tuned for updates on new learning tools, technical explorations, and innovative solutions.',
+    icon: '🚀',
+    link: '#',
+    featured: false,
+    tags: ['Upcoming'],
+  },
+];
 
 function Projects() {
-  const projects = [
-    {
-      id: 1,
-      icon: '🇦🇱',
-      title: 'Albanian Flashcards',
-      description:
-        'Interactive language learning tool featuring verbs, numbers, and nouns with multiple quiz modes, progress tracking, and statistics.',
-      status: 'Try it Now!',
-      statusColor: 'text-brand-primary',
-      featured: true,
-      tags: ['React', 'TypeScript', 'Education'],
-    },
-    {
-      id: 2,
-      icon: '🚀',
-      title: 'Project Two',
-      description:
-        'Another exciting project in development. This space is reserved for the next innovative tool or application.',
-      status: 'In Development',
-      statusColor: 'text-brand-secondary',
-      featured: false,
-      tags: ['TBD'],
-    },
-    {
-      id: 3,
-      icon: '💡',
-      title: 'Project Three',
-      description:
-        'More innovation coming soon. Future projects will be showcased here as they progress.',
-      status: 'Planning',
-      statusColor: 'text-brand-text/50',
-      featured: false,
-      tags: ['TBD'],
-    },
-  ];
+  useEffect(() => {
+    // Animate project cards on page load
+    animateStaggerFadeIn('.project-card', 150, 300);
+  }, []);
 
   return (
-    <div className="min-h-screen py-16">
-      <div className="content-container">
+    <>
+      <MetaTags
+        title="Projects | BitByFerd"
+        description="Explore projects showcasing modern web development practices. Featured: Albanian language learning app with interactive flashcards, progress tracking, and multiple study modes."
+        canonical="https://bitbyferd.com/projects"
+        ogImage="https://bitbyferd.com/og-projects.png"
+        ogType="article"
+      />
+    <main id="main-content" className="min-h-screen py-16 px-6 md:px-12">
+    <div className="min-h-screen py-16 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-headline mb-4 text-brand-heading">Vibe Coding Projects</h1>
-          <p className="text-body-large text-brand-text max-w-2xl mx-auto">
-            Explore my portfolio of innovative tools and applications, from language learning to
-            productivity enhancements.
+        <div className="mb-16">
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-4">
+            Vibe Coding Projects
+          </h1>
+          <p className="text-xl text-gray-400">
+            A collection of projects showcasing modern web development practices, innovative solutions, and continuous learning.
           </p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map(project => {
-            // Albanian Flashcards - make it clickable
-            if (project.id === 1) {
-              return (
-                <Link to="/flashcards" key={project.id}>
-                  <div className="group relative bg-brand-muted rounded-lg p-8 executive-shadow hover:executive-glow transition-all cursor-pointer flex flex-col">
-                    {/* Featured Badge */}
-                    <div className="absolute top-4 right-4 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                      Featured
-                    </div>
-
-                    {/* Icon */}
-                    <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">
-                      {project.icon}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-2xl font-bold text-brand-heading mb-3">{project.title}</h3>
-
-                    {/* Description */}
-                    <p className="text-brand-text leading-relaxed mb-6 flex-grow">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map(tag => (
-                        <span
-                          key={tag}
-                          className="text-xs px-3 py-1 bg-brand-bg rounded-full text-brand-text/70 font-semibold"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Status with Arrow */}
-                    <div className="flex items-center justify-between pt-4 border-t border-brand-text/10">
-                      <span className={project.statusColor + ' font-semibold text-sm'}>
-                        {project.status}
-                      </span>
-                      <svg
-                        className="w-5 h-5 text-brand-primary group-hover:translate-x-2 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </Link>
-              );
-            }
-
-            // Other projects - keep as is
-            return (
+          {projects.map((project) => (
               <div
                 key={project.id}
-                className={`group relative bg-brand-muted rounded-lg p-8 executive-shadow hover:executive-glow transition-all cursor-pointer flex flex-col ${
-                  project.featured ? '' : 'opacity-70 hover:opacity-100'
-                }`}
+                className="project-card group relative bg-brand-muted rounded-lg p-8 executive-shadow hover:executive-glow transition-all cursor-pointer flex flex-col h-full"
+                style={{ opacity: 0 }}
+                onMouseEnter={(e) => animateCardHover(e.currentTarget, true)}
+                onMouseLeave={(e) => animateCardHover(e.currentTarget, false)}
+                role="article"
+                aria-label={`${project.title} project`}
               >
-                {/* Featured Badge */}
-                {project.featured && (
-                  <div className="absolute top-4 right-4 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                    Featured
-                  </div>
-                )}
-
-                {/* Icon */}
-                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">
+              {/* Icon */}
+              {project.icon && (
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
                   {project.icon}
                 </div>
+              )}
 
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-brand-heading mb-3">{project.title}</h3>
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-primary transition-colors">
+                {project.title}
+              </h3>
 
-                {/* Description */}
-                <p className="text-brand-text leading-relaxed mb-6 flex-grow">
-                  {project.description}
-                </p>
+              {/* Description */}
+              <p className="text-gray-400 mb-6 flex-grow">
+                {project.description}
+              </p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map(tag => (
+              {/* Tags */}
+              {project.tags && project.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-3 py-1 bg-brand-bg rounded-full text-brand-text/70 font-semibold"
+                      className="px-3 py-1 text-sm bg-brand-primary/20 text-brand-primary rounded-full"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
+              )}
 
-                {/* Status with Arrow */}
-                <div className="flex items-center justify-between pt-4 border-t border-brand-text/10">
-                  <span className={`${project.statusColor} font-semibold text-sm`}>
-                    {project.status}
-                  </span>
-                  <svg
-                    className="w-5 h-5 text-brand-primary group-hover:translate-x-2 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="card inline-block max-w-2xl">
-            <h3 className="text-xl font-bold text-brand-heading mb-3">Have a Project Idea?</h3>
-            <p className="text-brand-text mb-6">
-              I'm always interested in collaborating on interesting projects or hearing about new
-              ideas. Let's build something great together!
-            </p>
-            <a href="/contact" className="btn-primary inline-flex items-center gap-2">
-              Get in Touch
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </a>
-          </div>
+              {/* CTA Button */}
+              {project.link !== '#' && (
+                <a
+                  href={project.link}
+                  className="inline-block px-6 py-2 bg-brand-primary text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors w-fit focus:outline-none"
+                  aria-label={`Explore ${project.title}`}
+                >
+                  Explore →
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
+    </main>
+    </>
   );
 }
 

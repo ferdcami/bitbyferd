@@ -1,7 +1,7 @@
 {
   "name": "Ferdinand \"Ferd\" Cami",
   "title": "Vice President, Global Legal Hosted Services",
-  "summary": "Strategic and collaborative technology executive with deep expertise in eDiscovery, legal technology, and global hosted solutions. Proven record of scaling professional services organizations in hypergrowth environments by orchestrating cross-functional teams, optimizing operational efficiency, and driving measurable customer outcomes. Known as a customer-obsessed, low-ego leader who simplifies complexity, inspires distributed teams, and builds value-driven service models. Adept at fintech, analytics/AI, and legal technology, with a consistent track record of improving execution speed, client satisfaction, and operational scalability.",
+  "summary": "Strategic technical program leader with deep experience overseeing global infrastructure platforms, mission-critical data systems, and complex customer delivery programs. Proven record driving large technical initiatives, coordinating engineering, product, and operations teams, and supporting enterprise scale data environments exceeding multi-petabyte capacity. Skilled at translating customer requirements into technical execution roadmaps, resolving high-impact escalations, and delivering stable, scalable platforms in fast-moving environments. Strong experience with cloud architecture concepts, datacenter scale hosting operations, AI-adjacent analytics, and cross-functional program leadership.",
   "contact": {
     "location": "Chicago, IL",
     "phone": "###.###.####",
@@ -16,7 +16,17 @@
       "period": "2014 – Present",
       "location": "Chicago, IL",
       "highlights": [
-        "Directed department, overseeing an average of 58,000+ annual hours (42,000 billable / 16,000 non-billable) and driving $5M+ in annual professional services revenue with annualized contributions up to $6.7M",
+        "Managed customer escalation, solution validation, deployment readiness, and long-term technical roadmap alignment",
+        "Led programs incorporating advanced analytics and AI-driven tools (Brainspace, analytics classifiers, automated review engines), improving performance and workflow scalability for large enterprise clients",
+        "Oversaw datacenter-scale hosting infrastructure supporting multi-petabyte datasets with strict uptime, latency, and compliance requirements",
+        "Directed global teams across multiple regions, instilling a culture of accountability, customer empathy, and operational excellence.",
+        "Partnered with engineering teams to optimize system performance, capacity planning, and highavailability configuration",
+        "Managed dependencies across compute, storage, networking, and application layers during largescale customer programs.",
+        "Coordinated engineering, product management, security, and support teams across multiple regions to deliver complex technical solutions under aggressive timelines",
+        "Drove cross-functional program synchronization using structured playbooks, dependency tracking, and milestone-based execution",
+        "Introduced scalable solutions for data migration, system performance, and complex data transformations (SQL, multi-source extractions), resulting in measurable efficiency gains.",
+        "Acted as senior technical liaison for enterprise customers, translating requirements into engineering actions and ensuring delivery of complex infrastructure solutions",
+        "Directed technical teams delivering 58,000-80,000 annualized hours of work supporting enterprise datacenter operations.",
         "Improved utilization and efficiency, achieving ~81% utilization and 75% target attainment while balancing client delivery with operational and talent development priorities",
         "Oversaw more than 2 petabytes of active eDiscovery hosting data, generating $220M in ARR, creating a recurring, high-margin revenue stream",
         "Directed global teams across multiple regions, instilling a culture of accountability, customer empathy, and operational excellence",
@@ -53,7 +63,7 @@
   "education": [
     {
       "institution": "DePaul University",
-      "degree": "B.S. CyberSecurity / CompSci Minor",
+      "degree": "B.S. CyberSecurity / Computer Science Minor",
       "year": "Graduated",
       "location": "Chicago, IL"
     }

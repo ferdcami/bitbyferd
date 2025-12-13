@@ -1,0 +1,9 @@
+# Allow all robots to crawl the site
+User-agent: *
+Allow: /
+
+# Point to sitemap
+Sitemap: https://bitbyferd.com/sitemap.xml
+
+# Respect crawl delay
+Crawl-delay: 1

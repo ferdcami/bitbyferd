@@ -1,3 +1,5 @@
+import MetaTags from '../components/MetaTags';
+
 function Contact() {
   const socialLinks = [
     {
@@ -44,81 +46,43 @@ function Contact() {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="content-narrow py-16">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-headline mb-6 text-brand-heading">Let's Connect</h1>
-          <p className="text-body-large text-brand-text max-w-2xl mx-auto">
-            I'm always interested in hearing about new opportunities, collaborations, or just having
-            a conversation about technology and innovation.
-          </p>
-        </div>
+      <>
+      <MetaTags
+        title="Contact | BitByFerd"
+        description="Get in touch with Ferd Cami. Connect via LinkedIn, GitHub, or email. Open to opportunities, collaborations, and conversations about technology and innovation."
+        canonical="https://bitbyferd.com/contact"
+        ogImage="https://bitbyferd.com/og-contact.png"
+      />
+    <main id="main-content" className="min-h-screen py-16 px-6 md:px-12">
+      <div className="max-w-4xl mx-auto text-center">
+        <h1 className="text-5xl md:text-6xl font-black text-white mb-8">
+          Let's Connect
+        </h1>
+        <p className="text-xl text-gray-400 mb-12">
+          Reach out through any of these channels
+        </p>
 
-        {/* Social Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {socialLinks.map(link => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${link.color} ${link.hoverColor} text-white rounded-lg p-8 transition-all executive-shadow hover:executive-glow group flex flex-col items-center text-center`}
-            >
-              <div className="mb-4 group-hover:scale-110 transition-transform">{link.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{link.name}</h3>
-              <p className="text-sm opacity-90">{link.description}</p>
-              <div className="mt-4 flex items-center gap-2 text-sm font-semibold">
-                Connect
-                <svg
-                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* Additional Info */}
-        <div className="card text-center">
-          <h3 className="text-xl font-bold text-brand-heading mb-3">Response Time</h3>
-          <p className="text-brand-text">
-            I typically respond to messages within 24-48 hours. For urgent matters, LinkedIn is
-            usually the fastest way to reach me.
-          </p>
-        </div>
-
-        {/* Location (Optional) */}
-        <div className="mt-8 text-center">
-          <div className="inline-flex items-center gap-2 text-brand-text/70">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-            <span>Based in Chicago, IL</span>
+        {/* Social Links */}
+        <nav aria-label="Social media links">
+          <div className="flex justify-center gap-8 flex-wrap">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                rel="noopener noreferrer"
+                target="_blank"
+                className={`group flex flex-col items-center gap-2 p-4 rounded-lg transition-all focus:outline-none ${link.color}`}
+                aria-label={`Connect with me on ${link.name}: ${link.description}`}
+              >
+                {link.icon}
+                <span className="text-sm font-semibold">{link.name}</span>
+              </a>
+            ))}
           </div>
-        </div>
+        </nav>
       </div>
-    </div>
+    </main>
+    </>
   );
 }
 

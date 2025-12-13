@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import cvData from '../data/cv.json';
+import MetaTags from '../components/MetaTags';
 
 interface Experience {
   company: string;
@@ -53,6 +54,15 @@ function CV() {
   }, []);
 
   return (
+        <>
+      {/* ← ADD THIS SECTION */}
+      <MetaTags
+        title="CV | Ferdinand Cami"
+        description="Professional CV of Ferdinand Cami - VP Global Legal Hosted Services at KLDiscovery. 18+ years in eDiscovery, legal tech, and cloud hosting. Leadership, technical expertise, and proven track record."
+        canonical="https://bitbyferd.com/cv"
+        ogImage="https://bitbyferd.com/og-cv.png"
+      />
+    <main id="main-content" className="min-h-screen py-16 px-6 md:px-12">
     <div className="min-h-screen py-16">
       <div className="content-narrow">
         {/* Header */}
@@ -340,6 +350,8 @@ function CV() {
         </div>
       </div>
     </div>
+    </main>
+    </>
   );
 }
 

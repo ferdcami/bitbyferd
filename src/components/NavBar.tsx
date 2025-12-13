@@ -1,106 +1,84 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
 
 function NavBar() {
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Helper function to check if link is active
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
-
-  // Navigation links data
-  const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/cv', label: 'CV' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/contact', label: 'Contact' },
-  ];
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-brand-muted border-b border-brand-text/10 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="text-2xl font-extrabold text-brand-heading hover:text-brand-primary transition-colors"
+    <>
+      {/* Skip to main content link (for accessibility) */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only absolute top-0 left-0 bg-brand-primary text-white px-4 py-2 m-2 rounded"
+      >
+        Skip to main content
+      </a>
+
+      <nav 
+        aria-label="Main navigation"
+        className="bg-brand-dark border-b border-brand-muted sticky top-0 z-50"
+      >
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          {/* Logo/Brand */}
+          <Link 
+            to="/" 
+            className="text-2xl font-black text-white hover:text-brand-primary transition-colors focus:outline-none"
+            aria-label="BitByFerd Home"
           >
             BitByFerd
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navLinks.map(link => (
+          {/* Nav Links */}
+          <ul className="flex gap-8 list-none m-0 p-0">
+            <li>
               <Link
-                key={link.path}
-                to={link.path}
-                className={`font-semibold transition-colors relative ${
-                  isActive(link.path)
-                    ? 'text-brand-primary'
-                    : 'text-brand-text hover:text-brand-primary'
+                to="/"
+                className={`font-semibold transition-colors focus:outline-none ${
+                  isActive('/') ? 'text-brand-primary' : 'text-gray-300 hover:text-white'
                 }`}
+                aria-current={isActive('/') ? 'page' : undefined}
               >
-                {link.label}
-                {isActive(link.path) && (
-                  <span className="absolute -bottom-[17px] left-0 right-0 h-0.5 bg-brand-primary"></span>
-                )}
+                Home
               </Link>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-brand-text hover:text-brand-primary transition-colors p-2"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              // X icon
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              // Hamburger icon
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
-          </button>
+            </li>
+            <li>
+              <Link
+                to="/cv"
+                className={`font-semibold transition-colors focus:outline-none ${
+                  isActive('/cv') ? 'text-brand-primary' : 'text-gray-300 hover:text-white'
+                }`}
+                aria-current={isActive('/cv') ? 'page' : undefined}
+              >
+                CV
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/projects"
+                className={`font-semibold transition-colors focus:outline-none ${
+                  isActive('/projects') ? 'text-brand-primary' : 'text-gray-300 hover:text-white'
+                }`}
+                aria-current={isActive('/projects') ? 'page' : undefined}
+              >
+                Vibe Coding Projects
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className={`font-semibold transition-colors focus:outline-none ${
+                  isActive('/contact') ? 'text-brand-primary' : 'text-gray-300 hover:text-white'
+                }`}
+                aria-current={isActive('/contact') ? 'page' : undefined}
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-2">
-            {navLinks.map(link => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-2 rounded-lg font-semibold transition-colors ${
-                  isActive(link.path)
-                    ? 'bg-brand-primary text-white'
-                    : 'text-brand-text hover:bg-brand-bg hover:text-brand-primary'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }
 
