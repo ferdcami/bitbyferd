@@ -8,6 +8,7 @@ const Home = lazy(() => import('./pages/Home'));
 const CV = lazy(() => import('./pages/CV'));
 const Projects = lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Flashcards = lazy(() => import('./pages/Flashcards'));
 
 // Loading fallback
 function LoadingFallback() {
@@ -29,7 +30,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cv" element={<CV />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/flashcards" element={<Flashcards />} />
           <Route path="/contact" element={<Contact />} />
+          {/* Catch-all for 404 - redirect to home */}
+          <Route path="*" element={<Home />} />
         </Routes>
       </Suspense>
       <Footer />
