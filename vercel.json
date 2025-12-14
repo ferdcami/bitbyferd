@@ -2,8 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "nodeVersion": "18.x",
-  "public": true,
   "headers": [
     {
       "source": "/sitemap.xml",
@@ -70,5 +68,5 @@
       "destination": "/index.html"
     }
   ]
-  
+
 }
