@@ -19,7 +19,7 @@ const projects: Project[] = [
     title: 'Albanian Flashcards',
     description: 'A comprehensive language learning tool with 60+ flashcards, multiple study modes, and progress tracking. Features include flip animations, quiz modes (MCQ & fill-in-the-blank), and persistent LocalStorage.',
     icon: '📚',
-    link: '/flashcards',
+    link: '/projects/flashcards',
     featured: true,
     tags: ['React', 'TypeScript', 'TailwindCSS', 'Language Learning'],
   },
