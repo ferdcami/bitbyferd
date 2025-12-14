@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Accessibility: Global focus styles */
 :focus-visible {
   outline: 2px solid #6EA8FE; /* brand-primary */
@@ -26,15 +32,9 @@ button:focus-visible,
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   body {
-    @apply bg-brand-bg text-brand-text font-sans;
+    @apply bg-brand-dark text-brand-text font-sans;  
   }
 
   h1,

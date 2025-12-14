@@ -122,6 +122,9 @@ function CV() {
                 src="/images/avatar.png"
                 alt="Ferd Cami"
                 className="w-32 h-32 md:w-40 md:h-40 rounded-full executive-shadow object-cover border-4 border-brand-primary"
+                loading="lazy" 
+                width={160} 
+                height={160}
               />
             </div>
           </div>

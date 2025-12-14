@@ -71,52 +71,57 @@
   "skills": [
     {
       "category": "Leadership & Management",
-      "items": ["Professional Services Leadership", "Cross-Functional Team Leadership", "Global Talent Development", "Executive & Customer Communication"]
+      "items": ["Professional Services Leadership", "Cross-Functional Team Leadership", "Global Talent Development", "Executive & Customer Communication", "Technical Program Management"]
     },
     {
       "category": "Legal Technology & eDiscovery",
-      "items": ["eDiscovery & Legal Tech", "Relativity", "Fintech Familiarity", "Analytics/AI Solutions"]
+      "items": ["eDiscovery & Legal Tech", "Relativity", "AI/ML-based analytics tools", "Brainspace", "Data Hosting & Management", "Forensic Data Collection & Analysis", "Encase", "FTK", "CAAT", "Nuix", "Digital Forensics", "Litigation Support"]
     },
     {
       "category": "Technical & Operations",
-      "items": ["Relational Databases (PGSQL/MSSQL)", "CRM (Zendesk)", "Operational Efficiency & KPI Tracking", "Process Optimization & Cost Reduction"]
+      "items": ["Relational Databases", "CRM", "Operational Efficiency & KPI Tracking", "Process Optimization & Cost Reduction", "Vibe", "Prompt Engineering"]
     }
   ],
   "certifications": [
     {
       "name": "Relativity Master",
       "issuer": "Relativity",
-      "year": ""
+      "year": "Summer 2012"
     },
     {
       "name": "Full MEDDPICC",
       "issuer": "Sales Certification",
-      "year": ""
+      "year": "Autumn 2025"
     },
     {
       "name": "Nebula",
       "issuer": "Nebula",
-      "year": ""
+      "year": "Winter 2020"
     },
     {
       "name": "EnCase",
       "issuer": "EnCase",
-      "year": ""
+      "year": "Autumn 2012"
     },
     {
       "name": "Brainspace",
       "issuer": "Brainspace",
-      "year": ""
+      "year": "Spring 2020"
     },
     {
       "name": "Advanced SQL",
       "issuer": "SQL Training",
-      "year": ""
+      "year": "Summer 2009"
     },
     {
       "name": "Content Analyst",
       "issuer": "Content Analyst",
-      "year": ""
+      "year": "Summer 2008"
+    },
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "year": "Spring 2026"
     }
   ],
   "languages": [
