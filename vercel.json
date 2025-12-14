@@ -1,10 +1,43 @@
 {
+  "projectName": "bitbyferd",
   "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "framework": "vite",
   "outputDirectory": "dist",
-  "env": {
-    "VITE_APP_NAME": "BitByFerd"
-  }
+  "framework": "vite",
+  "nodeVersion": "18.x",
+  "env": {},
+  "envs": {
+    "production": {
+      "VITE_API_URL": "https://bitbyferd.com"
+    },
+    "preview": {
+      "VITE_API_URL": "@VERCEL_URL"
+    }
+  },
+  "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/flashcards",
+      "destination": "/projects/flashcards",
+      "permanent": true
+    }
+  ]
 }
