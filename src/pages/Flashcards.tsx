@@ -1,21 +1,15 @@
 import { useState, useEffect } from 'react';
 import FlashcardCard from '../components/FlashcardCard';
 import DeckControls from '../components/DeckControls';
-import verbsData from '../data/flashcards/verbs.json';
-import numbersData from '../data/flashcards/numbers.json';
-import nounsData from '../data/flashcards/nouns.json';
 import QuizMCQ from '../components/QuizMCQ';
 import QuizSummary from '../components/QuizSummary';
 import type { Flashcard, CardType, StudyMode } from '../lib/types';
 import { markAnswer, getCardProgress, calculateStats, getRedoDeck } from '../lib/progressHelpers';
 
 function Flashcards() {
-  const [allCards] = useState<Flashcard[]>([
-    ...(verbsData as Flashcard[]),
-    ...(numbersData as Flashcard[]),
-    ...(nounsData as Flashcard[]),
-  ]);
-
+  // All useState hooks MUST be at the top (before any conditionals)
+  const [allCards, setAllCards] = useState<Flashcard[]>([]);
+  const [loading, setLoading] = useState(true);
   const [activeTypes, setActiveTypes] = useState<CardType[]>(['verb', 'number', 'noun']);
   const [studyMode, setStudyMode] = useState<StudyMode>('study');
   const [quizResults, setQuizResults] = useState<boolean[]>([]);
@@ -25,6 +19,26 @@ function Flashcards() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [feedbackType, setFeedbackType] = useState<'correct' | 'incorrect' | null>(null);
   const [showControls, setShowControls] = useState(true);
+
+  // Load flashcard data from public folder
+  useEffect(() => {
+    const loadFlashcards = async () => {
+      try {
+        const [verbs, numbers, nouns] = await Promise.all([
+          fetch('/data/flashcards/verbs.json').then(r => r.json()),
+          fetch('/data/flashcards/numbers.json').then(r => r.json()),
+          fetch('/data/flashcards/nouns.json').then(r => r.json()),
+        ]);
+        setAllCards([...verbs, ...numbers, ...nouns]);
+      } catch (error) {
+        console.error('Failed to load flashcards:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadFlashcards();
+  }, []);
 
   // Filter cards based on active types and study mode
   const getFilteredCards = (): Flashcard[] => {
@@ -162,6 +176,17 @@ function Flashcards() {
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [currentIndex, totalCards, showFeedback, showControls]);
+
+  // Show loading state while data is loading
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-brand-text">Loading flashcards...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen py-16">
