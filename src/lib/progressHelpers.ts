@@ -1,5 +1,7 @@
 import type { Flashcard, ProgressMap, ProgressEntry } from './types';
-import { readProgress, writeProgress } from './storage';
+import { readProgress as readProgressFromStorage, writeProgress as writeProgressFromStorage } from './storage';
+export const readProgress = readProgressFromStorage;
+export const writeProgress = writeProgressFromStorage;
 
 export const markAnswer = (cardId: string, isCorrect: boolean): void => {
   const progressMap: ProgressMap = readProgress(); // Add explicit type annotation here
