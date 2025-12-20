@@ -1,13 +1,12 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { 
-  readProgress, 
-  writeProgress, 
-  markAnswer, 
-  getCardProgress,
-  calculateStats,
-  getRedoDeck 
-} from '../progressHelpers';
-import type { Flashcard, ProgressMap } from '../types';
+   import { 
+     readProgress, 
+     markAnswer, 
+     getCardProgress,
+     calculateStats,
+     getRedoDeck 
+   } from '../progressHelpers';
+   import type { Flashcard } from '../types';
 
 describe('progressHelpers', () => {
   beforeEach(() => {

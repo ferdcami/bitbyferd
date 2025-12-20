@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import FlashcardCard from '../components/FlashcardCard';
 import DeckControls from '../components/DeckControls';
 import QuizMCQ from '../components/QuizMCQ';
 import QuizSummary from '../components/QuizSummary';
 import type { Flashcard, CardType, StudyMode } from '../lib/types';
+
 import { markAnswer, getCardProgress, calculateStats, getRedoDeck } from '../lib/progressHelpers';
 
 function Flashcards() {
@@ -86,24 +87,24 @@ function Flashcards() {
   };
 
   // Handle next card
-  const handleNext = () => {
-    if (currentIndex < totalCards - 1) {
-      setCurrentIndex(currentIndex + 1);
-      setIsFlipped(false);
-      setShowFeedback(false);
-      setFeedbackType(null);
-    }
-  };
+   const handleNext = useCallback(() => {
+     if (currentIndex < totalCards - 1) {
+       setCurrentIndex(currentIndex + 1);
+       setIsFlipped(false);
+       setShowFeedback(false);
+       setFeedbackType(null);
+     }
+   }, [currentIndex, totalCards]);
 
   // Handle previous card
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      setIsFlipped(false);
-      setShowFeedback(false);
-      setFeedbackType(null);
-    }
-  };
+    const handlePrev = useCallback(() => {
+     if (currentIndex > 0) {
+       setCurrentIndex(currentIndex - 1);
+       setIsFlipped(false);
+       setShowFeedback(false);
+       setFeedbackType(null);
+     }
+   }, [currentIndex]);
 
   // Handle marking answer
   const handleMarkAnswer = (isCorrect: boolean) => {
@@ -173,9 +174,9 @@ function Flashcards() {
       }
     };
 
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [currentIndex, totalCards, showFeedback, showControls]);
+     window.addEventListener('keydown', handleKeyPress);
+     return () => window.removeEventListener('keydown', handleKeyPress);
+   }, [currentIndex, totalCards, showFeedback, showControls, handleNext, handlePrev]);
 
   // Show loading state while data is loading
   if (loading) {
