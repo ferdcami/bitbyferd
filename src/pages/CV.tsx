@@ -50,7 +50,7 @@ function CV() {
     <>
       <MetaTags
         title="CV"
-        description="Ferdinand Cami — Vice President, Global Legal Hosted Services. View my professional experience, education, and technical expertise."
+        description="Ferdinand Cami — Vice President, Global Operations & Hosted Services. View my professional experience, education, and technical expertise."
       />
 
       <main id="main-content" className="min-h-screen py-16 px-6 md:px-12">
