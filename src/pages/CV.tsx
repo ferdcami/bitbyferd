@@ -97,7 +97,7 @@ function CV() {
 
               {/* Download CV Button */}
               <a
-                href="/data/cv.pdf"
+                href="/media/cv.pdf"
                 download="Ferdinand_Cami_CV.pdf"
                 className="px-6 py-3 bg-brand-muted text-white font-semibold rounded-lg hover:bg-gray-600 transition-colors flex items-center gap-2"
                 aria-label="Download CV as PDF"
