@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import MetaTags from '../components/MetaTags';
 import { animateStaggerFadeIn } from '../lib/animations';
-import type { Flashcard } from '../lib/types';
 
 function CV() {
   const [cvData, setCvData] = useState<any>(null);
