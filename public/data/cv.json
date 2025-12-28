@@ -1,0 +1,130 @@
+{
+  "name": "Ferdinand \"Ferd\" Cami",
+  "title": "Vice President, Global Legal Hosted Services",
+  "summary": "Strategic technical program leader with deep experience overseeing global infrastructure platforms, mission-critical data systems, and complex customer delivery programs. Proven record driving large technical initiatives, coordinating engineering, product, and operations teams, and supporting enterprise scale data environments exceeding multi-petabyte capacity. Skilled at translating customer requirements into technical execution roadmaps, resolving high-impact escalations, and delivering stable, scalable platforms in fast-moving environments. Strong experience with cloud architecture concepts, datacenter scale hosting operations, AI-adjacent analytics, and cross-functional program leadership.",
+  "contact": {
+    "location": "Chicago, IL",
+    "phone": "###.###.####",
+    "linkedin": "https://www.linkedin.com/in/ferdinandcami",
+    "github": "https://github.com/ferdcami",
+    "email": "ferdinand.cami@gmail.com"
+  },
+  "experience": [
+    {
+      "company": "KLDiscovery Ontrack, LLC",
+      "role": "Vice President, Global Legal Hosted Services",
+      "period": "2014 – Present",
+      "location": "Chicago, IL",
+      "highlights": [
+        "Managed customer escalation, solution validation, deployment readiness, and long-term technical roadmap alignment",
+        "Led programs incorporating advanced analytics and AI-driven tools (Brainspace, analytics classifiers, automated review engines), improving performance and workflow scalability for large enterprise clients",
+        "Oversaw datacenter-scale hosting infrastructure supporting multi-petabyte datasets with strict uptime, latency, and compliance requirements",
+        "Directed global teams across multiple regions, instilling a culture of accountability, customer empathy, and operational excellence.",
+        "Partnered with engineering teams to optimize system performance, capacity planning, and highavailability configuration",
+        "Managed dependencies across compute, storage, networking, and application layers during largescale customer programs.",
+        "Coordinated engineering, product management, security, and support teams across multiple regions to deliver complex technical solutions under aggressive timelines",
+        "Drove cross-functional program synchronization using structured playbooks, dependency tracking, and milestone-based execution",
+        "Introduced scalable solutions for data migration, system performance, and complex data transformations (SQL, multi-source extractions), resulting in measurable efficiency gains.",
+        "Acted as senior technical liaison for enterprise customers, translating requirements into engineering actions and ensuring delivery of complex infrastructure solutions",
+        "Directed technical teams delivering 58,000-80,000 annualized hours of work supporting enterprise datacenter operations.",
+        "Improved utilization and efficiency, achieving ~81% utilization and 75% target attainment while balancing client delivery with operational and talent development priorities",
+        "Oversaw more than 2 petabytes of active eDiscovery hosting data, generating $220M in ARR, creating a recurring, high-margin revenue stream",
+        "Directed global teams across multiple regions, instilling a culture of accountability, customer empathy, and operational excellence",
+        "Defined and tracked KPIs for uptime, efficiency, and client satisfaction, reducing delivery friction and improving implementation cycle times",
+        "Led strategic collaborations with product, commercial, and engineering teams to integrate client needs into scalable solutions and long-term product roadmaps",
+        "Mentored and developed talent, creating a distributed high-performing team through structured training, coaching, and leadership development",
+        "Introduced scalable solutions for data migration, system performance, and complex data transformations (SQL, multi-source extractions), resulting in measurable efficiency gains",
+        "Acted as executive sponsor for key clients, translating business goals into aligned technical outcomes and strengthening long-term partnerships"
+      ]
+    },
+    {
+      "company": "KLDiscovery Ontrack, LLC",
+      "role": "Director, Legal Hosted Services/Forensics Examiner",
+      "period": "2011 – 2014",
+      "location": "Chicago, IL",
+      "highlights": [
+        "Built and managed professional services delivery frameworks for hosted and forensic solutions",
+        "Partnered with clients on complex implementations, ensuring security, compliance, and efficient execution",
+        "Elevated operational practices by implementing structured escalation protocols, reducing client impact of recurring technical issues"
+      ]
+    },
+    {
+      "company": "KLDiscovery Ontrack, LLC",
+      "role": "Senior eDiscovery Consultant/Technical Project Manager",
+      "period": "2006 – 2011",
+      "location": "Chicago, IL",
+      "highlights": [
+        "Managed large-scale eDiscovery projects across commercial litigation, employment law, and regulatory matters",
+        "Coordinated multidisciplinary teams and external vendors, ensuring on-time and budget-conscious delivery",
+        "Developed and refined project playbooks that improved delivery quality and reduced turnaround times"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "DePaul University",
+      "degree": "B.S. CyberSecurity / Computer Science Minor",
+      "year": "Graduated",
+      "location": "Chicago, IL"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Leadership & Management",
+      "items": ["Professional Services Leadership", "Cross-Functional Team Leadership", "Global Talent Development", "Executive & Customer Communication", "Technical Program Management"]
+    },
+    {
+      "category": "Legal Technology & eDiscovery",
+      "items": ["eDiscovery & Legal Tech", "Relativity", "AI/ML-based analytics tools", "Brainspace", "Data Hosting & Management", "Forensic Data Collection & Analysis", "Encase", "FTK", "CAAT", "Nuix", "Digital Forensics", "Litigation Support"]
+    },
+    {
+      "category": "Technical & Operations",
+      "items": ["Relational Databases", "CRM", "Operational Efficiency & KPI Tracking", "Process Optimization & Cost Reduction", "Vibe", "Prompt Engineering"]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Relativity Master",
+      "issuer": "Relativity",
+      "year": "Summer 2012"
+    },
+    {
+      "name": "Full MEDDPICC",
+      "issuer": "Sales Certification",
+      "year": "Autumn 2025"
+    },
+    {
+      "name": "Nebula",
+      "issuer": "Nebula",
+      "year": "Winter 2020"
+    },
+    {
+      "name": "EnCase",
+      "issuer": "EnCase",
+      "year": "Autumn 2012"
+    },
+    {
+      "name": "Brainspace",
+      "issuer": "Brainspace",
+      "year": "Spring 2020"
+    },
+    {
+      "name": "Advanced SQL",
+      "issuer": "SQL Training",
+      "year": "Summer 2009"
+    },
+    {
+      "name": "Content Analyst",
+      "issuer": "Content Analyst",
+      "year": "Summer 2008"
+    },
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "year": "Spring 2026"
+    }
+  ],
+  "languages": [
+    "Albanian"
+  ]
+}
