@@ -50,7 +50,7 @@ function CV() {
     <>
       <MetaTags
         title="CV"
-        description="Ferdinand Cami — Vice President, Global Operations & Hosted Services. View my professional experience, education, and technical expertise."
+        description="Ferdinand Cami — Vice President, Global Legal Hosted Services. View my professional experience, education, and technical expertise."
       />
 
       <main id="main-content" className="min-h-screen py-16 px-6 md:px-12">
@@ -97,8 +97,9 @@ function CV() {
 
               {/* Download CV Button */}
               <a
-                href="/media/cv.pdf"
-                download="Ferdinand_Cami_CV.pdf"
+                href="https://drive.google.com/file/d/1uFinA8pqWUD9r3kH7nRFYHkz5uUAMXvh/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 bg-brand-muted text-white font-semibold rounded-lg hover:bg-gray-600 transition-colors flex items-center gap-2"
                 aria-label="Download CV as PDF"
               >
@@ -124,10 +125,11 @@ function CV() {
                 <h2 className="text-2xl font-bold text-white mb-4">Executive Presentation</h2>
                 <div className="bg-white rounded-lg overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
                   <iframe
-                    src="/media/executive-presentation.pdf"
+                    src="https://drive.google.com/file/d/1SbQP1zDH5X4xA_JVW1KcPXqdVyXtQOWd/preview"
                     title="Ferdinand Cami Executive Presentation"
                     className="w-full h-full"
                     style={{ minHeight: '600px' }}
+                    allow="autoplay"
                   />
                 </div>
                 <p className="text-brand-text/70 text-sm mt-4">
