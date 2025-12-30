@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import MetaTags from '../components/MetaTags';
 import { animateStaggerFadeIn } from '../lib/animations';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CV() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [cvData, setCvData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [showMedia, setShowMedia] = useState<'infographic' | 'slideshow' | null>(null);
@@ -55,47 +57,51 @@ function CV() {
 
       <main id="main-content" className="min-h-screen py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          {/* Header */}
+          {/* Header with Avatar */}
           <div className="mb-12 cv-section" style={{ opacity: 0 }}>
-            <h1 className="text-5xl md:text-6xl font-black text-white mb-2">
-              {cvData.name}
-            </h1>
-            <p className="text-2xl text-brand-primary font-semibold mb-4">
-              {cvData.title}
-            </p>
-            <p className="text-lg text-brand-text mb-6">
-              {cvData.summary}
-            </p>
+            <div className="flex items-start gap-8 mb-8">
+              <img
+                src="/images/avatar.png"
+                alt="Ferdinand Cami"
+                className="w-32 h-32 rounded-full object-cover flex-shrink-0"
+              />
+              <div>
+                <h1 className="text-5xl md:text-6xl font-black text-white mb-2">
+                  {cvData.name}
+                </h1>
+                <p className="text-2xl text-brand-primary font-semibold mb-4">
+                  {cvData.title}
+                </p>
+                <p className="text-lg text-brand-text">
+                  {cvData.summary}
+                </p>
+              </div>
+            </div>
 
-            {/* Media Dropdown */}
+            {/* Media Buttons */}
             <div className="flex flex-wrap gap-4 mb-8">
-              <div className="relative">
-                <button
-                  onClick={() => setShowMedia(showMedia === 'infographic' ? null : 'infographic')}
-                  className="px-6 py-3 bg-brand-primary text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors flex items-center gap-2"
-                  aria-label="Toggle infographic"
-                >
-                  📊 Infographic
-                  <span className="ml-2 text-sm">
-                    {showMedia === 'infographic' ? '▼' : '▶'}
-                  </span>
-                </button>
-              </div>
+              <button
+                onClick={() => setShowMedia(showMedia === 'infographic' ? null : 'infographic')}
+                className="px-6 py-3 bg-brand-primary text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors flex items-center gap-2"
+                aria-label="Toggle infographic"
+              >
+                📊 Infographic
+                <span className="ml-2 text-sm">
+                  {showMedia === 'infographic' ? '▼' : '▶'}
+                </span>
+              </button>
 
-              <div className="relative">
-                <button
-                  onClick={() => setShowMedia(showMedia === 'slideshow' ? null : 'slideshow')}
-                  className="px-6 py-3 bg-brand-secondary text-white font-semibold rounded-lg hover:bg-purple-600 transition-colors flex items-center gap-2"
-                  aria-label="Toggle slide show"
-                >
-                  📑 Slide Show
-                  <span className="ml-2 text-sm">
-                    {showMedia === 'slideshow' ? '▼' : '▶'}
-                  </span>
-                </button>
-              </div>
+              <button
+                onClick={() => setShowMedia(showMedia === 'slideshow' ? null : 'slideshow')}
+                className="px-6 py-3 bg-brand-secondary text-white font-semibold rounded-lg hover:bg-purple-600 transition-colors flex items-center gap-2"
+                aria-label="Toggle slide show"
+              >
+                📑 Slide Show
+                <span className="ml-2 text-sm">
+                  {showMedia === 'slideshow' ? '▼' : '▶'}
+                </span>
+              </button>
 
-              {/* Download CV Button */}
               <a
                 href="https://drive.google.com/file/d/1uFinA8pqWUD9r3kH7nRFYHkz5uUAMXvh/view?usp=drive_link"
                 target="_blank"
